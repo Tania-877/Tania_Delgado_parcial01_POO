@@ -1,0 +1,50 @@
+import java.util.*;
+public class PlazaFija extends  Empleado {
+private int extencion;
+
+
+    public PlazaFija(String nombre, String salario, Double puesto) {
+        super(nombre, salario, puesto);
+        this.extencion= extencion;
+    }
+
+    public PlazaFija() {
+
+    }
+
+    @Override
+    public void calcularPago(Empleado p, double restante) {
+
+    }
+
+    @Override
+    public void calcularPagoServicio(Empleado p, double restante) {
+
+    }
+
+    @Override
+    public Double calcularPagoPlaza(Empleado p, double restante) {
+
+        return null;
+    }
+
+    @Override
+    public void calcularPagoServicio(String escribe_tu_salario) {
+
+    }
+
+    public int getExtencion() {
+        return extencion;
+    }
+
+    public int setExtencion() {
+        return extencion;
+    }
+
+    @Override
+    public String toString() {
+        return "PlazaFija{" +
+                "extencion=" + extencion +
+                "} " + super.toString();
+    }
+}
