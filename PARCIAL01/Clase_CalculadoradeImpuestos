@@ -1,0 +1,118 @@
+import java.util.*;
+import java.util.ArrayList;
+import java.lang.String;
+import java.util.Scanner;
+public class  CalculadoradeImpuestos extends Empleado {
+
+
+    private Double totalRenta;
+    private int Rentatotal=0;
+    private Double totalISSS;
+    private int ISSStotal=0;
+    private Double totalAFP;
+    private int AFPtotal=0;
+    private Object ServicoProfesional;
+    private Object PlazaFija;
+    private Double pagoTotal;
+
+    public CalculadoradeImpuestos(String nombre, String salario, Double puesto, Double totalRenta, Double totalAFP,
+                                  Double totalISSS) {
+        super(nombre, salario, puesto);
+        this.totalAFP = totalAFP;
+        this.totalISSS = totalISSS;
+        this.totalRenta = totalRenta;
+    }
+
+    public CalculadoradeImpuestos() {
+        super();
+        int contadorsalario = 0;
+    }
+
+    @Override
+    public void calcularPago(Empleado p, double restante) {
+
+    }
+
+    @Override
+    public void calcularPagoServicio(Empleado p, double restante) {
+        int salario = getSalario();
+         if (p instanceof ServicoProfesional) {
+            ServicoProfesional = (Empleado) p;
+            if (salario > 1) {
+                totalRenta = salario * 0.1;
+                pagoTotal = salario - totalRenta;
+                System.out.println("Total a pagar: " + pagoTotal);
+
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+    @Override
+            public Double calcularPagoPlaza(Empleado p, double restante) {
+                int salario = getSalario();
+            PlazaFija  = (Empleado) p;
+        System.out.println("Ingrese su salario: " );
+            if (salario > 0.01 && salario < 472.01) {
+                totalAFP = salario * 0.0625;
+                totalISSS=  salario * 0.03;
+                restante= totalAFP + totalISSS;
+                totalRenta = (salario - restante) * 0;
+                pagoTotal = salario -(totalRenta+ totalISSS+ totalAFP);
+                System.out.println("Total a pagar: " + pagoTotal);
+                throw new IllegalArgumentException();
+            }
+            if (salario > 472.01 && salario < 895.24) {
+                totalAFP = salario * 0.0625;
+                totalISSS=  salario * 0.03;
+                restante= totalAFP + totalISSS;
+                totalRenta = (salario - restante) * 0.1 + 17.50;
+                pagoTotal =salario -(totalRenta+ totalISSS+ totalAFP);
+                System.out.println("Total a pagar: " + pagoTotal);
+                throw new IllegalArgumentException();
+            }
+            else if (salario > 895.24 && salario < 2038.11) {
+                totalAFP = salario * 0.0625;
+                totalISSS=  salario * 0.03;
+                restante= totalAFP + totalISSS;
+                totalRenta = (salario - restante) * 0.2 + 60;
+                pagoTotal =salario -(totalRenta+ totalISSS+ totalAFP);
+                System.out.println("Total a pagar: " + pagoTotal);
+                throw new IllegalArgumentException();
+            }
+            else  {
+                totalAFP = salario * 0.0625;
+                totalISSS=  salario * 0.03;
+                restante= totalAFP + totalISSS;
+                totalRenta = (salario - restante) * 0.3 + 288.57;
+                pagoTotal =salario -(totalRenta+ totalISSS+ totalAFP);
+                System.out.println("Total a pagar: " + pagoTotal);
+                throw new IllegalArgumentException();
+            }
+
+    }
+
+
+
+    @Override
+    public void calcularPagoServicio(String escribe_tu_salario) {
+
+    }
+
+    @Override
+    public String toString() {
+        return "CalculadoradeImpuestos{" +
+                "totalRenta=" + totalRenta +
+                ", Rentatotal=" + Rentatotal +
+                ", totalISSS=" + totalISSS +
+                ", ISSStotal=" + ISSStotal +
+                ", totalAFP=" + totalAFP +
+                ", AFPtotal=" + AFPtotal +
+                ", ServicoProfesional=" + ServicoProfesional +
+                ", PlazaFija=" + PlazaFija +
+                ", pagoTotal=" + pagoTotal +
+                "} " + super.toString();
+    }
+}
+
+
+
