@@ -1,0 +1,52 @@
+import java.util.*;
+public  class ServicoProfesional extends Empleado {
+    private int mesesContrato;
+
+    public ServicoProfesional(String nombre, String salario, Double puesto) {
+        super(nombre, salario, puesto);
+        this.mesesContrato=mesesContrato;
+    }
+    public ServicoProfesional(String salario) {
+        salario= salario;
+    }
+    public ServicoProfesional() {
+        super();
+    }
+
+    @Override
+    public void calcularPago(Empleado p, double restante) {
+
+    }
+
+    @Override
+    public void calcularPagoServicio(Empleado p, double restante) {
+
+    }
+
+    @Override
+    public Double calcularPagoPlaza(Empleado p, double restante) {
+
+        return null;
+    }
+
+    @Override
+    public void calcularPagoServicio(String escribe_tu_salario) {
+
+    }
+
+
+    public int getMeses() {
+        return mesesContrato;
+    }
+
+    public int setMeses() {
+        return mesesContrato;
+    }
+
+    @Override
+    public String toString() {
+        return "ServicoProfesional{" +
+                "mesesContrato=" + mesesContrato +
+                "} " + super.toString();
+    }
+}
