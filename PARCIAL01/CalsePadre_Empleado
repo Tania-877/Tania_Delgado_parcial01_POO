@@ -1,0 +1,42 @@
+package com.TMDV.x00190918;
+import java.util.*;
+public abstract class Empleado {
+private String nombre;
+private String salario;
+private Double puesto;
+
+    public Empleado(String nombre,String salario,Double puesto) {
+        this.nombre = nombre;
+        this.puesto = puesto;
+        this.salario = salario;
+    }
+
+    public Empleado(String salario) {
+salario= salario;
+    }
+
+    public Empleado() {
+
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public Double getPuesto() {
+        return puesto;
+    }
+
+    public int getSalario() {
+        return Integer.parseInt(salario);
+    }
+
+
+    public abstract void calcularPago(Empleado p, double restante);
+
+    public abstract void calcularPagoServicio(Empleado p, double restante);
+
+    public abstract Double calcularPagoPlaza(Empleado p, double restante);
+
+    public abstract void calcularPagoServicio(String escribe_tu_salario);
+}
