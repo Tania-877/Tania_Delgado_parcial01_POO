@@ -1,0 +1,106 @@
+package com.TMDV.x00190918;
+
+import java.util.*;
+import java.util.ArrayList;
+import java.lang.String;
+import java.util.Scanner;
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int salario=0;
+        int cantidad;
+        Double totalAFP;
+        Double totalISSS;
+        Double totalRenta;
+        Double restante;
+        double pagoTotal;
+        int op=0;
+
+        do {
+            System.out.print("Por favor inserte una cadena de texto: ");
+            System.out.println("su respuesta es: " + op);
+
+            switch (op) {
+                case 1:
+                    System.out.println("  Desea insertar un empleado de Servicio Profesional");
+                        ServicoProfesional p = new ServicoProfesional();
+                    System.out.println("  ingrese su nombre");
+                    System.out.println("Su nombre: " + p.getNombre());
+                    System.out.println("  ingrese su puesto");
+                    System.out.println("Su puesto es: " + p.getPuesto());
+                    System.out.println("  ingrese los meses de contrato");
+                    System.out.println("Numero de meses de contrato: " + p.getMeses());
+                    System.out.print("Por favor ingrese su salario sin descuentos: ");
+                    System.out.println("Ingrese su salario sin descuentos: " + salario );
+                    if (salario > 1) {
+                        cantidad = (int) (salario * 0.1);
+                        pagoTotal = salario - cantidad;
+                        System.out.println("Cadena modificada: " + cantidad);
+                        System.out.println("Cadena modificada: " + pagoTotal);
+
+                        throw new IllegalArgumentException();
+                    }
+
+                    System.out.println("  Desea insertar un empleado de Servicio Profesional");
+                    PlazaFija c = new PlazaFija();
+                    System.out.println("  ingrese su nombre");
+                    System.out.println("Su nombre es: " + c.getNombre());
+                    System.out.println("  ingrese su puesto de trabajo");
+                    System.out.println("Su puesto es: " + c.getPuesto());
+                    System.out.println("  ingrese el numero de extencion de la oficina");
+                    System.out.println("Su numero de la oficina es: " + c.getExtencion());
+                    System.out.println("  ingrese su salario"+ salario);
+                    if (salario > 0.01 && salario < 472.01) {
+                        totalAFP = salario * 0.0625;
+                        totalISSS=  salario * 0.03;
+                        restante= totalAFP + totalISSS;
+                        totalRenta = (salario - restante) * 0;
+                        pagoTotal = salario -(totalRenta+ totalISSS+ totalAFP);
+                        System.out.println("Total a pagar: " + pagoTotal);
+                        throw new IllegalArgumentException();
+                    }
+                    if (salario > 472.01 && salario < 895.24) {
+                        totalAFP = salario * 0.0625;
+                        totalISSS=  salario * 0.03;
+                        restante= totalAFP + totalISSS;
+                        totalRenta = (salario - restante) * 0.1 + 17.50;
+                        pagoTotal =salario -(totalRenta+ totalISSS+ totalAFP);
+                        System.out.println("Total a pagar: " + pagoTotal);
+                        throw new IllegalArgumentException();
+                    }
+                    else if (salario > 895.24 && salario < 2038.11) {
+                        totalAFP = salario * 0.0625;
+                        totalISSS=  salario * 0.03;
+                        restante= totalAFP + totalISSS;
+                        totalRenta = (salario - restante) * 0.2 + 60;
+                        pagoTotal =salario -(totalRenta+ totalISSS+ totalAFP);
+                        System.out.println("Total a pagar: " + pagoTotal);
+                        throw new IllegalArgumentException();
+                    }
+                    else  {
+                        totalAFP = salario * 0.0625;
+                        totalISSS=  salario * 0.03;
+                        restante= totalAFP + totalISSS;
+                        totalRenta = (salario - restante) * 0.3 + 288.57;
+                        pagoTotal =salario -(totalRenta+ totalISSS+ totalAFP);
+                        System.out.println("Total a pagar: " + pagoTotal);
+                        throw new IllegalArgumentException();
+                    }
+
+
+                case 2:
+                    System.out.println(" Saliendo....");
+                    break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + op);
+            }
+        }
+            while (op != 2) ;
+        }
+
+}
+
+
+
+
